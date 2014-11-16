@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -Werror -std=c99 -g
 
-all: run sorts testQueue testStack
+all: run sorts testQueue testStack graph
 
 run: BSTree.o runTree.o
 	$(CC) $(CFLAGS) -o run BSTree.o runTree.o 
@@ -34,5 +34,17 @@ testStack.o: testStack.c Stack.h
 Stack.o: Stack.c Stack.h
 	$(CC) $(CFLAGS) -c Stack.c
 
+search: List.o Graph.o runGraph.o
+	$(CC) $(CFLAGS) -o graph List.o Graph.o runGraph.o
+
+List.o: List.c List.h
+	$(CC) $(CFLAGS) -c List.c
+
+Graph.o: Graph.c Graph.h
+	$(CC) $(CFLAGS) -c Graph.c
+
+runGraph.o: runGraph.c Graph.h
+	$(CC) $(CFLAGS) -c runGraph.c
+
 clean:
-	rm *.o run sorts testQueue testStack
+	rm *.o run sorts testQueue testStack graph
