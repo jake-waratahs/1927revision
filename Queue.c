@@ -19,6 +19,7 @@ typedef struct _queue {
 
 Queue newQueue(void){
 	Queue new = malloc(sizeof(struct _queue));
+	assert(new != NULL);
 	new->first = NULL;
 	new->last = NULL;
 	return new;
@@ -43,6 +44,7 @@ int queueLeave(Queue q){
 
 void queueJoin(Queue q, int item){
 	Node new = malloc(sizeof(struct _node));
+	assert(new != NULL);
 	new->value = item;
 	new->next = NULL;
 

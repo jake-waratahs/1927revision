@@ -1,4 +1,4 @@
-//Queue.h implementation
+//Queue.h interface
 
 typedef struct _queue *Queue;
 
